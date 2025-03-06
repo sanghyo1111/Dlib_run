@@ -3,7 +3,7 @@ import dlib
 import numpy as np
 from stable_baselines3 import PPO
 detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
+predictor = dlib.shape_predictor("model\shape_predictor_68_face_landmarks.dat")
 
 def apply_circular_noise_patch(image, landmarks, patch_radius=10, noise_intensity=30):
     noisy_image = image.copy()
@@ -51,4 +51,4 @@ def test_model_on_image(image_path, model_path):
         cv2.destroyAllWindows()
         break
     
-test_model_on_image("WIN_20250306_01_19_02_Pro.jpg", "ppo_face_noise.zip")
+test_model_on_image("Image.jpg", "model\ppo_face_noise.zip")
